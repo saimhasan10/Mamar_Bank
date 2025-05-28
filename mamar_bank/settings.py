@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import environ
+import dj_database_url
 from pathlib import Path
+
 
 env = environ.Env()
 environ.Env.read_env()
@@ -89,16 +91,25 @@ WSGI_APPLICATION = "mamar_bank.wsgi.application"
 #     }
 # }
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": env("DB_NAME"),
+#         "USER": env("DB_USER"),
+#         "PASSWORD": env("DB_PASSWORD"),
+#         "HOST": env("DB_HOST"),
+#         "PORT": env("DB_PORT"),
+#     }
+# }
+
+# postgres database with onrender
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env("DB_NAME"),
-        "USER": env("DB_USER"),
-        "PASSWORD": env("DB_PASSWORD"),
-        "HOST": env("DB_HOST"),
-        "PORT": env("DB_PORT"),
-    }
+    "default": dj_database_url.config(
+        default="postgresql://mamarbank_64lz_user:goukfRrDAXYID3JhLoUtMCJyt8TyAvHN@dpg-d0roimumcj7s73d5imq0-a.oregon-postgres.render.com/mamarbank_64lz",
+        conn_max_age=600,
+    )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
