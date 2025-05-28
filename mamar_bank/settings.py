@@ -106,7 +106,6 @@ WSGI_APPLICATION = "mamar_bank.wsgi.application"
 DATABASES = {
     "default": dj_database_url.config(
         default="postgresql://mamarbank_64lz_user:goukfRrDAXYID3JhLoUtMCJyt8TyAvHN@dpg-d0roimumcj7s73d5imq0-a.oregon-postgres.render.com/mamarbank_64lz",
-        conn_max_age=600,
     )
 }
 
