@@ -40,3 +40,4 @@ six
 sqlparse
 tzdata
 yarl
+dj-database-url
