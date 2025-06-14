@@ -1,7 +1,14 @@
-<h3>Hello {{user.first_name}} {{user.last_name}}</h3>
+<!-- transactions/templates/transactions/admin_email.html -->
 
-<h2>Congratulations!! Your Loan Request has been approved</h2>
-<p>After loan approval your total amount is {{user.account.balance}}</p>
+<h3>Hello {{ user.first_name }} {{ user.last_name }}</h3>
+
+<h2>Congratulations!! Your {{ transaction_type }} Request has been approved</h2>
+
+<p>
+  After {{ transaction_type }} approval, your total amount is
+  <!--  -->
+  ${{user.account.balance|floatformat:2 }}
+</p>
 
 <p>Thanks for banking with us</p>
-<p>South Bank</p>
+<p><strong>South Bank</strong></p>
